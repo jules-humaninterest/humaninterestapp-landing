@@ -10,229 +10,304 @@
   />
 
   <style>
-    :root {
-      --bg: #000;
-      --text: #fff;
-      --muted: rgba(255,255,255,0.7);
-      --soft: rgba(255,255,255,0.45);
-      --line: rgba(255,255,255,0.08);
-      --link: rgba(255,255,255,0.85);
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.45);
+      --line:rgba(255,255,255,.10);
+      --card:rgba(255,255,255,.04);
+      --max: 920px;
+      --radius: 14px;
     }
 
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55;
     }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    a{ color: var(--fg); text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
-    /* PAGE */
-    .page {
-      width: 100%;
-      padding: 72px 20px 56px;
-    }
-
-    .container {
-      max-width: 900px;
+    .wrap{
+      width:100%;
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 48px 20px 64px;
     }
 
-    header {
-      margin-bottom: 28px;
-      padding-bottom: 22px;
+    header{
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin: 0 0 10px 0;
+    .kicker{
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
     }
 
-    .subhead {
+    h1{
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead{
+      color: var(--muted);
+      margin: 0;
+      max-width: 70ch;
+      font-size: 14px;
+    }
+
+    .meta-row{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
       color: var(--soft);
       font-size: 13px;
-      line-height: 1.5;
-      margin: 0;
     }
 
-    .toplinks {
-      margin-top: 18px;
-      display: flex;
-      gap: 14px;
+    .meta-pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .top-links{
+      display:flex;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    a {
-      color: var(--link);
-      text-decoration: none;
+    .top-links a{
+      color: var(--muted);
       border-bottom: 1px solid transparent;
       padding-bottom: 2px;
     }
-
-    a:hover {
-      border-bottom-color: rgba(255,255,255,0.4);
-      color: var(--text);
+    .top-links a:hover{
+      color: var(--fg);
+      border-bottom-color: rgba(255,255,255,.35);
+      text-decoration: none;
     }
 
-    /* CONTENT */
-    .content {
-      line-height: 1.65;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .content h2 {
-      color: var(--text);
-      font-size: 16px;
-      font-weight: 600;
-      margin: 26px 0 10px;
-      letter-spacing: 0.02em;
-    }
-
-    .content p {
-      margin: 0 0 12px;
-    }
-
-    .content ul {
-      margin: 10px 0 14px 18px;
-      padding: 0;
-    }
-
-    .content li {
-      margin: 6px 0;
-    }
-
-    .content strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .notice {
-      margin-top: 18px;
-      padding: 14px 16px;
+    /* Mini TOC */
+    nav.toc{
+      margin: 18px 0 26px;
+      padding: 14px 14px;
+      background: var(--card);
       border: 1px solid var(--line);
-      border-radius: 10px;
-      color: var(--soft);
+      border-radius: var(--radius);
+    }
+    .toc-title{
       font-size: 13px;
-      line-height: 1.6;
-      background: rgba(255,255,255,0.03);
+      color: var(--soft);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+    .toc ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+    @media (max-width: 720px){
+      .toc ul{ grid-template-columns: 1fr; }
+    }
+    .toc a{
+      color: var(--muted);
+      font-size: 13px;
+      display:inline-block;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .toc a:hover{
+      color: var(--fg);
+      text-decoration: none;
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
     }
 
-    /* FOOTER (matches landing page) */
-    footer {
-      margin-top: auto;
-      background: #000;
-      padding: 64px 20px 56px;
-      text-align: center;
+    /* Content sections */
+    section{
+      padding: 18px 0;
       border-top: 1px solid var(--line);
     }
+    section:first-of-type{ border-top: none; }
 
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    h2{
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
     }
-
-    .coming-soon {
-      letter-spacing: 0.12em;
-      font-size: 12px;
-      color: var(--soft);
-    }
-
-    .footer-email {
+    h3{
       font-size: 14px;
+      margin: 14px 0 8px;
+      color: var(--fg);
+    }
+    p{
+      margin: 10px 0;
       color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      display: inline-block;
+      font-size: 14px;
+      max-width: 75ch;
     }
 
-    .footer-email:hover {
-      color: var(--text);
-      border-bottom-color: rgba(255,255,255,0.4);
+    ul{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 80ch;
     }
+    li{ margin: 6px 0; }
 
-    .footer-company {
+    .note{
+      margin-top: 12px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
       font-size: 13px;
+      max-width: 85ch;
+    }
+
+    .contact-card{
+      margin-top: 12px;
+      padding: 14px 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 85ch;
+    }
+    .contact-card b{ color: var(--fg); font-weight: 600; }
+    .contact-card a{ color: var(--fg); }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      padding: 26px 0 8px;
       color: var(--soft);
+      font-size: 12px;
+      text-align: center;
     }
+    .footer-links{
+      margin-top: 10px;
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .footer-links a{ color: var(--muted); }
+    .footer-links a:hover{ color: var(--fg); text-decoration: underline; }
 
-    .footer-links a {
-      font-size: 13px;
+    .back-top{
+      display:inline-block;
+      margin-top: 14px;
       color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-    }
-
-    .footer-links a:hover {
-      color: var(--text);
-      border-bottom-color: rgba(255,255,255,0.4);
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
-  <main class="page">
-    <div class="container">
-      <header>
-        <h1>Privacy Policy</h1>
-        <p class="subhead">
-          Human Interest Group, Inc. (“Human Interest,” “we,” “our,” or “us”) is committed to protecting your privacy and building trust.
-        </p>
+  <div class="wrap" id="top">
 
-        <div class="toplinks">
-          <a href="/">← Back to Home</a>
-          <a href="mailto:support@humaninterestapp.com">Contact: support@humaninterestapp.com</a>
-        </div>
-      </header>
+    <header>
+      <div class="kicker">Human Interest</div>
+      <h1>Privacy Policy</h1>
+      <p class="subhead">
+        Human Interest Group, Inc. (“Human Interest,” “we,” “our,” or “us”) is committed to protecting your privacy and building trust.
+        This Policy explains how we collect, use, disclose, and safeguard your information when you access or use our mobile applications,
+        website, and related services (collectively, the “Platform”).
+      </p>
 
-      <section class="content">
+      <div class="meta-row">
+        <span class="meta-pill">Last updated: <span id="lastUpdated">January 2, 2026</span></span>
+        <span class="meta-pill">Contact: <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a></span>
+        <span class="meta-pill">18+ only</span>
+      </div>
+
+      <div class="top-links" style="margin-top:14px;">
+        <a href="/index.html">← Back to Home</a>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul>
+        <li><a href="#overview">1. Overview</a></li>
+        <li><a href="#collect">2. Information We Collect</a></li>
+        <li><a href="#use">3. How We Use Your Information</a></li>
+        <li><a href="#share">4. How We Share Information</a></li>
+        <li><a href="#cookies">5. Cookies & Tracking</a></li>
+        <li><a href="#retention">6. Data Retention</a></li>
+        <li><a href="#security">7. Data Security</a></li>
+        <li><a href="#rights">8. Your Privacy Rights</a></li>
+        <li><a href="#transfers">9. International Transfers</a></li>
+        <li><a href="#children">10. Children’s Privacy</a></li>
+        <li><a href="#changes">11. Changes to This Policy</a></li>
+        <li><a href="#contact">12. Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="overview">
         <h2>1. Overview</h2>
-        <p>
-          This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access or use our mobile applications (iOS and Android), website, and related services (collectively, the “Platform”).
-        </p>
         <p>
           By using the Platform, you agree to the collection and use of information in accordance with this Privacy Policy.
         </p>
+      </section>
 
+      <section id="collect">
         <h2>2. Information We Collect</h2>
-        <p>We collect information you provide directly, information generated through your use of the Platform, and information from third parties, as described below.</p>
+        <p>
+          We collect information you provide directly, information generated through your use of the Platform, and information from third parties.
+        </p>
 
-        <p><strong>a. Information You Provide</strong></p>
+        <h3>a. Information You Provide</h3>
         <ul>
-          <li><strong>Account Information:</strong> Name, username, email address, phone number, profile photo, biography, interests, and preferences.</li>
-          <li><strong>Payment Information:</strong> Billing details and transaction information (processed securely by third-party payment processors; Human Interest does not store full payment card numbers).</li>
-          <li><strong>Communications:</strong> Messages, room participation, feedback, support requests, and other communications you send through the Platform.</li>
+          <li><b>Account Information:</b> Name, username, email address, phone number, profile photo, biography, interests, and preferences.</li>
+          <li><b>Payment Information:</b> Billing details and transaction information (processed securely by third-party payment processors; we do not store full payment card numbers).</li>
+          <li><b>Communications:</b> Messages, room participation, feedback, support requests, and other communications you send through the Platform.</li>
         </ul>
 
-        <p><strong>b. Information Collected Automatically</strong></p>
+        <h3>b. Information Collected Automatically</h3>
         <ul>
-          <li><strong>Usage Data:</strong> Interactions with rooms, channels, features, and content; timestamps; referral sources.</li>
-          <li><strong>Device &amp; Technical Data:</strong> Device type, operating system, app version, IP address, browser type, and identifiers.</li>
-          <li><strong>Approximate Location:</strong> Derived from IP address (e.g., city or region level), not precise GPS location unless explicitly permitted.</li>
+          <li><b>Usage Data:</b> Interactions with rooms, channels, features, and content; timestamps; referral sources.</li>
+          <li><b>Device & Technical Data:</b> Device type, operating system, app version, IP address, browser type, and identifiers.</li>
+          <li><b>Approximate Location:</b> Derived from IP address (e.g., city or region level), not precise GPS location unless explicitly permitted.</li>
         </ul>
 
-        <p><strong>c. Information from Third Parties</strong></p>
+        <h3>c. Information from Third Parties</h3>
         <ul>
-          <li><strong>Affiliates &amp; Partners:</strong> Referral or attribution data from affiliates, creators, or community partners.</li>
-          <li><strong>Service Providers:</strong> Analytics, hosting, and infrastructure partners that support Platform functionality.</li>
+          <li><b>Affiliates & Partners:</b> Referral or attribution data from affiliates, creators, or community partners.</li>
+          <li><b>Service Providers:</b> Analytics, hosting, and infrastructure partners that support Platform functionality.</li>
         </ul>
+      </section>
 
+      <section id="use">
         <h2>3. How We Use Your Information</h2>
         <p>We use your information to:</p>
         <ul>
@@ -247,22 +322,28 @@
           <li>Comply with legal obligations and enforce our Terms of Service.</li>
         </ul>
 
-        <h2>AI &amp; Automated Systems</h2>
-        <p>
-          Human Interest may use AI-assisted systems to support features such as recommendations, moderation assistance, matching, and product improvement. These systems are designed to enhance user experience and safety and are not used to sell personal data or make solely automated decisions that produce legal or similarly significant effects.
-        </p>
+        <div class="note">
+          <b>AI & Automated Systems.</b>
+          Human Interest may use AI-assisted systems to support features such as recommendations, moderation assistance, matching, and product improvement.
+          These systems are designed to enhance user experience and safety and are not used to sell personal data or make solely automated decisions
+          that produce legal or similarly significant effects.
+        </div>
+      </section>
 
+      <section id="share">
         <h2>4. How We Share Information</h2>
-        <p><strong>We do not sell your personal information.</strong></p>
+        <p><b>We do not sell your personal information.</b></p>
         <p>We may share information in the following circumstances:</p>
         <ul>
-          <li><strong>Service Providers:</strong> With trusted vendors who perform services on our behalf (e.g., hosting, analytics, payments), under contractual confidentiality obligations.</li>
-          <li><strong>Creators &amp; Affiliates:</strong> Limited data necessary to support attribution, revenue sharing, or channel operations.</li>
-          <li><strong>Legal &amp; Safety Reasons:</strong> When required by law, court order, or to protect the rights, safety, and integrity of Human Interest, our users, or the public.</li>
-          <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, financing, or sale of assets, subject to appropriate safeguards.</li>
+          <li><b>Service Providers:</b> With trusted vendors who perform services on our behalf (e.g., hosting, analytics, payments), under contractual confidentiality obligations.</li>
+          <li><b>Creators & Affiliates:</b> Limited data necessary to support attribution, revenue sharing, or channel operations.</li>
+          <li><b>Legal & Safety Reasons:</b> When required by law, court order, or to protect the rights, safety, and integrity of Human Interest, our users, or the public.</li>
+          <li><b>Business Transfers:</b> In connection with a merger, acquisition, financing, or sale of assets, subject to appropriate safeguards.</li>
         </ul>
+      </section>
 
-        <h2>5. Cookies &amp; Tracking Technologies</h2>
+      <section id="cookies">
+        <h2>5. Cookies & Tracking Technologies</h2>
         <p>We use cookies, SDKs, and similar technologies to:</p>
         <ul>
           <li>Authenticate users;</li>
@@ -270,75 +351,102 @@
           <li>Analyze performance and usage;</li>
           <li>Measure acquisition and referral effectiveness.</li>
         </ul>
-        <p>You may manage cookie preferences through your device or browser settings. Some features may not function properly if cookies are disabled.</p>
+        <p>
+          You may manage cookie preferences through your device or browser settings.
+          Some features may not function properly if cookies are disabled.
+        </p>
+      </section>
 
+      <section id="retention">
         <h2>6. Data Retention</h2>
         <p>
-          We retain personal information only as long as necessary to fulfill the purposes described in this Policy, unless a longer retention period is required or permitted by law.
+          We retain personal information only as long as necessary to fulfill the purposes described in this Policy,
+          unless a longer retention period is required or permitted by law.
         </p>
         <p>
-          You may request account deletion at any time. Upon deletion, we will remove or anonymize your personal data, subject to legal, security, or operational requirements.
+          You may request account deletion at any time. Upon deletion, we will remove or anonymize your personal data,
+          subject to legal, security, or operational requirements.
         </p>
+      </section>
 
+      <section id="security">
         <h2>7. Data Security</h2>
         <p>
-          We implement reasonable administrative, technical, and organizational safeguards designed to protect your information. However, no system is completely secure, and we cannot guarantee absolute security.
+          We implement reasonable administrative, technical, and organizational safeguards designed to protect your information.
+          However, no system is completely secure, and we cannot guarantee absolute security.
         </p>
+      </section>
 
+      <section id="rights">
         <h2>8. Your Privacy Rights</h2>
         <p>
-          Depending on your location, you may have rights under applicable laws (including GDPR, CPRA/CCPA), such as the right to access, correct, delete, object/restrict processing, and request portability.
+          Depending on your location, you may have rights under applicable laws (including GDPR and CPRA/CCPA), such as the right to:
         </p>
+        <ul>
+          <li>Access your personal information;</li>
+          <li>Correct inaccurate data;</li>
+          <li>Request deletion;</li>
+          <li>Object to or restrict processing;</li>
+          <li>Request data portability.</li>
+        </ul>
         <p>
           To exercise these rights, contact <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a>.
         </p>
+      </section>
 
+      <section id="transfers">
         <h2>9. International Data Transfers</h2>
         <p>
-          Human Interest is based in the United States. Your information may be transferred to and processed in the U.S. or other jurisdictions. We use appropriate safeguards to protect your information in accordance with applicable law.
+          Human Interest is based in the United States. Your information may be transferred to and processed in the U.S. or other jurisdictions.
+          We use appropriate safeguards to protect your information in accordance with applicable law.
         </p>
+      </section>
 
+      <section id="children">
         <h2>10. Children’s Privacy</h2>
         <p>
-          Human Interest is intended for users 18 years of age or older. We do not knowingly collect personal information from individuals under 18. If we become aware that such information has been collected, we will take steps to delete it promptly.
+          Human Interest is intended for users 18 years of age or older. We do not knowingly collect personal information from individuals under 18.
+          If we become aware that such information has been collected, we will take steps to delete it promptly.
         </p>
+      </section>
 
+      <section id="changes">
         <h2>11. Changes to This Policy</h2>
         <p>
-          We may update this Privacy Policy from time to time. We will notify users of material changes by updating this page or through the Platform. Continued use of the Platform after changes indicates acceptance of the updated Policy.
+          We may update this Privacy Policy from time to time. We will notify users of material changes by updating the date above or through the Platform.
+          Continued use of the Platform after changes indicates acceptance of the updated Policy.
         </p>
-
-        <h2>12. Contact Us</h2>
-        <p><strong>Human Interest Group, Inc.</strong></p>
-        <p>
-          Email: <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a><br />
-          Privacy Inquiries: <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a><br />
-          Address: Delaware, United States
-        </p>
-
-        <div class="notice">
-          If you’d like, I can add a subtle “Last updated: YYYY-MM-DD” line under the title (it’s often helpful for App Store review).
-        </div>
       </section>
-    </div>
-  </main>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="coming-soon">COMING SOON</div>
+      <section id="contact">
+        <h2>12. Contact Us</h2>
 
-      <a class="footer-email" href="mailto:info@humaninterestapp.com">
-        info@humaninterestapp.com
-      </a>
+        <div class="contact-card">
+          <div><b>Human Interest Group, Inc.</b></div>
+          <div style="margin-top:8px;">
+            Email: <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a><br/>
+            Privacy inquiries: <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a><br/>
+            Address: Delaware, United States
+          </div>
+        </div>
 
-      <div class="footer-company">
-        Human Interest Group, Inc.
-      </div>
+        <a class="back-top" href="#top">↑ Back to top</a>
+      </section>
+    </main>
 
+    <footer>
+      © <span id="year"></span> Human Interest Group, Inc.
       <div class="footer-links">
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/index.html">Home</a>
+        <a href="mailto:info@humaninterestapp.com">info@humaninterestapp.com</a>
       </div>
-    </div>
-  </footer>
+    </footer>
+
+  </div>
+
+  <script>
+    // tiny nicety: always current year without editing the file
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
