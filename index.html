@@ -18,29 +18,63 @@
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Full-width hero image */
+    /* HERO IMAGE */
     .hero {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    /* Video container */
-    .video-wrapper {
-      width: 100%;
+    /* VIDEO SECTION */
+    .video-section {
       background: #000;
+      padding: 80px 0;
       display: flex;
       justify-content: center;
     }
 
-    video {
+    .video-section video {
       width: 100%;
       max-width: 1366px;
       height: auto;
       display: block;
     }
+
+    /* FOOTER */
+    .site-footer {
+      background: #000;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      max-width: 160px;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HERO IMAGE -->
@@ -51,12 +85,27 @@
   />
 
   <!-- VIDEO -->
-  <div class="video-wrapper">
+  <section class="video-section">
     <video autoplay muted loop playsinline>
       <source src="hero.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <img
+      src="HI_Website.png"
+      alt="Human Interest logo"
+      class="footer-logo"
+    />
+
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+    </div>
+
+    <p class="footer-copy">© Human Interest</p>
+  </footer>
 
 </body>
 </html>
