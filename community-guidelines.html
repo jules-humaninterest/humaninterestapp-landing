@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Guidelines — Human Interest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Community Guidelines for Human Interest Group, Inc." />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.45);
+      --line:rgba(255,255,255,.10);
+      --card:rgba(255,255,255,.04);
+      --max: 920px;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    a{ color: var(--fg); text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header{
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .kicker{
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead{
+      color: var(--muted);
+      margin: 0;
+      max-width: 70ch;
+      font-size: 14px;
+    }
+
+    .meta-row{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .meta-pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .top-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .top-links a{
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .top-links a:hover{
+      color: var(--fg);
+      border-bottom-color: rgba(255,255,255,.35);
+      text-decoration: none;
+    }
+
+    nav.toc{
+      margin: 18px 0 26px;
+      padding: 14px 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .toc-title{
+      font-size: 13px;
+      color: var(--soft);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+    .toc ul{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+    }
+    @media (max-width: 720px){
+      .toc ul{ grid-template-columns: 1fr; }
+    }
+    .toc a{
+      color: var(--muted);
+      font-size: 13px;
+      display:inline-block;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+    .toc a:hover{
+      color: var(--fg);
+      text-decoration: none;
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+    }
+
+    section{
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+    section:first-of-type{ border-top: none; }
+
+    h2{
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+    h3{
+      font-size: 14px;
+      margin: 14px 0 8px;
+      color: var(--fg);
+    }
+    p{
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 75ch;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 80ch;
+    }
+    li{ margin: 6px 0; }
+
+    .rule-block{
+      margin: 14px 0;
+      padding: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      max-width: 80ch;
+    }
+    .rule-block .label{
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-bottom: 6px;
+    }
+    .rule-block.allow .label{ color: rgba(100,220,150,.7); }
+    .rule-block.deny .label{ color: rgba(220,100,100,.7); }
+    .rule-block ul{ margin-top: 4px; }
+
+    .enforcement-level{
+      margin: 10px 0;
+      padding: 12px 14px;
+      background: var(--card);
+      border-left: 2px solid rgba(255,255,255,.2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      max-width: 80ch;
+    }
+    .enforcement-level b{ color: var(--fg); }
+
+    .contact-card{
+      margin-top: 12px;
+      padding: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 85ch;
+    }
+    .contact-card b{ color: var(--fg); font-weight: 600; }
+    .contact-card a{ color: var(--fg); }
+
+    footer{
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      padding: 26px 0 8px;
+      color: var(--soft);
+      font-size: 12px;
+      text-align: center;
+    }
+    .footer-links{
+      margin-top: 10px;
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .footer-links a{ color: var(--muted); }
+    .footer-links a:hover{ color: var(--fg); text-decoration: underline; }
+
+    .back-top{
+      display:inline-block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+
+    <header>
+      <div class="kicker">Human Interest — humaninterestapp.com</div>
+      <h1>Community Guidelines</h1>
+      <p class="subhead">
+        These guidelines exist for one reason. Human Interest is built on the belief that real community — the kind that leads to genuine connection — only happens when people feel safe, respected, and free to be themselves.
+      </p>
+      <div class="meta-row">
+        <span class="meta-pill">Effective Date: March 18, 2026</span>
+        <span class="meta-pill">Contact: <a href="mailto:legal@humaninterestapp.com">legal@humaninterestapp.com</a></span>
+        <span class="meta-pill">18+ only</span>
+      </div>
+      <div class="top-links" style="margin-top:14px;">
+        <a href="/index.html">← Back to Home</a>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="Table of contents">
+      <div class="toc-title">Contents</div>
+      <ul>
+        <li><a href="#values">What We Stand For</a></li>
+        <li><a href="#rules">The Rules</a></li>
+        <li><a href="#channels">Channel Standards</a></li>
+        <li><a href="#enforcement">Enforcement</a></li>
+        <li><a href="#appeals">Appeals</a></li>
+        <li><a href="#reporting">How to Report</a></li>
+        <li><a href="#changes">Changes to These Guidelines</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <section id="values">
+        <h2>What We Stand For</h2>
+        <h3>Real Identity</h3>
+        <p>Every member is a real, verified person. We don't do anonymous. Authentic identity is the foundation on which everything else is built.</p>
+        <h3>Genuine Community</h3>
+        <p>We're here to build communities that feel like something — not feeds, not follower counts. Real people, real conversations, real belonging.</p>
+        <h3>Safety First</h3>
+        <p>Nobody should feel unsafe, harassed, or unwelcome here. Safety isn't a feature — it's the precondition for everything else.</p>
+      </section>
+
+      <section id="rules">
+        <h2>The Rules</h2>
+        <p>These guidelines apply to everything you post, share, or do on Human Interest — in channels, in direct messages, in your profile, and in any other part of the platform.</p>
+
+        <h3>Be Respectful</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Disagreeing constructively and with kindness</li>
+            <li>Challenging ideas, not people</li>
+            <li>Giving others the benefit of the doubt</li>
+            <li>Engaging with people whose views differ from yours</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Personal attacks, insults, or name-calling</li>
+            <li>Mocking, belittling, or dismissing other members</li>
+            <li>Aggressive or hostile responses to disagreement</li>
+            <li>Deliberately provocative or inflammatory behavior</li>
+          </ul>
+        </div>
+
+        <h3>Be Who You Say You Are</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Using your real name and a real photo</li>
+            <li>Representing yourself honestly in your bio and profile</li>
+            <li>Being transparent about who you are and what you're here for</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Creating fake or impersonator accounts</li>
+            <li>Using someone else's photos without permission</li>
+            <li>Misrepresenting your identity, profession, or credentials</li>
+            <li>Operating multiple accounts</li>
+          </ul>
+        </div>
+
+        <h3>Keep Interactions Safe</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Communicating with respect and clear intent</li>
+            <li>Reporting behavior that makes you or others uncomfortable</li>
+            <li>Using in-app tools to manage your experience</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Harassment, stalking, or unwanted contact</li>
+            <li>Sending unsolicited explicit messages or images</li>
+            <li>Pressuring anyone for personal information or meetings</li>
+            <li>Any behavior intended to intimidate or coerce</li>
+          </ul>
+        </div>
+
+        <h3>Post Meaningful Content</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Original thoughts, questions, and real experiences</li>
+            <li>Photos and media you own or have rights to share</li>
+            <li>Relevant content that adds value to the community</li>
+            <li>Constructive feedback and honest opinions</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Spam, repetitive posts, or mass messaging</li>
+            <li>Promotional content or solicitation without approval</li>
+            <li>Content copied from others without credit</li>
+            <li>Misleading, false, or deliberately deceptive posts</li>
+          </ul>
+        </div>
+
+        <h3>No Hate. No Discrimination.</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Celebrating diversity of background, identity, and experience</li>
+            <li>Engaging with people different from yourself</li>
+            <li>Creating space for all verified members</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Hate speech targeting race, ethnicity, religion, gender, sexual orientation, disability, or national origin</li>
+            <li>Slurs, dehumanizing language, or discriminatory jokes</li>
+            <li>Content that promotes or glorifies hate groups</li>
+            <li>Stereotyping or generalizing about any group of people</li>
+          </ul>
+        </div>
+
+        <h3>Keep It Appropriate</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Flirting and social connection in good taste</li>
+            <li>Expressing attraction respectfully</li>
+            <li>Discussing adult topics in appropriate contexts</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Nudity or sexually explicit content of any kind</li>
+            <li>Explicit sexual messages sent without consent</li>
+            <li>Content that sexualizes minors in any way</li>
+            <li>Graphic violence or disturbing imagery</li>
+          </ul>
+        </div>
+
+        <h3>Respect Privacy</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Keeping shared conversations confidential</li>
+            <li>Asking before sharing someone else's content</li>
+            <li>Respecting when someone declines to share personal information</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Sharing private information about others without consent (doxxing)</li>
+            <li>Screenshotting and sharing private conversations</li>
+            <li>Collecting or distributing other members' personal data</li>
+            <li>Tracking or monitoring another member's activity</li>
+          </ul>
+        </div>
+
+        <h3>No Unsolicited Promotion</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Mentioning your work or business when genuinely relevant</li>
+            <li>Sharing content you've created when it adds value to the community</li>
+            <li>Discussing your professional background naturally</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Posting advertisements or promotional content without approval</li>
+            <li>Sending unsolicited direct messages to promote products or services</li>
+            <li>Recruiting members for other platforms or businesses</li>
+            <li>Affiliate marketing, MLM promotion, or pyramid schemes</li>
+          </ul>
+        </div>
+
+        <h3>Stay Legal</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Sharing original content you own</li>
+            <li>Crediting creators when you share their work</li>
+            <li>Using the platform for lawful purposes only</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Sharing copyrighted content without permission</li>
+            <li>Facilitating or promoting illegal activities</li>
+            <li>Fraud, scams, or financial deception of any kind</li>
+            <li>Violating any applicable local, state, or federal law</li>
+          </ul>
+        </div>
+
+        <h3>Protect Minors</h3>
+        <div class="rule-block allow">
+          <div class="label">✓ We welcome</div>
+          <ul>
+            <li>Reporting any account that appears to belong to someone under 18</li>
+            <li>Reporting any content that involves or targets minors inappropriately</li>
+            <li>Helping maintain Human Interest as a safe adult community</li>
+          </ul>
+        </div>
+        <div class="rule-block deny">
+          <div class="label">✕ We do not allow</div>
+          <ul>
+            <li>Creating an account if you are under 18</li>
+            <li>Soliciting personal information from anyone who may be a minor</li>
+            <li>Sharing content that involves or sexualizes minors in any way</li>
+            <li>Any grooming behavior or inappropriate contact with young people</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="channels">
+        <h2>Channel Standards</h2>
+        <p>Each channel on Human Interest has its own focus and culture. In addition to these global guidelines, channel hosts may set additional standards specific to their community. Those standards will be posted in the channel description. Members are expected to read and respect them.</p>
+        <h3>What every channel expects</h3>
+        <ul>
+          <li>Stay on topic for the channel's theme</li>
+          <li>Introduce yourself when you first join</li>
+          <li>Read the channel description before posting</li>
+          <li>Follow host instructions and pinned posts</li>
+          <li>Keep conversations relevant and constructive</li>
+          <li>Welcome new members generously</li>
+        </ul>
+        <h3>What gets you removed from a channel</h3>
+        <ul>
+          <li>Repeatedly posting off-topic content</li>
+          <li>Ignoring host warnings or instructions</li>
+          <li>Creating conflict with other members</li>
+          <li>Using the channel for self-promotion</li>
+          <li>Any violation of global community guidelines</li>
+        </ul>
+      </section>
+
+      <section id="enforcement">
+        <h2>Enforcement</h2>
+        <p>We enforce these guidelines consistently and without favoritism. The actions we take depend on the severity and frequency of the violation.</p>
+
+        <div class="enforcement-level">
+          <b>Level 1 — Warning.</b> First-time minor violations. You'll receive a direct notice explaining what happened and what's expected going forward.
+        </div>
+        <div class="enforcement-level">
+          <b>Level 2 — Content Removal.</b> Posts, messages, or profile content that violates guidelines will be removed without notice. Repeated removals will escalate to account action.
+        </div>
+        <div class="enforcement-level">
+          <b>Level 3 — Channel Removal.</b> Removal from a specific channel. You retain access to the rest of the platform but lose membership in the channel where the violation occurred.
+        </div>
+        <div class="enforcement-level">
+          <b>Level 4 — Temporary Suspension.</b> Serious or repeated violations result in temporary suspension of your full account. Duration depends on severity — typically 3 to 30 days.
+        </div>
+        <div class="enforcement-level">
+          <b>Level 5 — Permanent Ban.</b> Severe violations or a pattern of repeated misconduct result in permanent account termination with no right of reinstatement. No refund of any subscription fees.
+        </div>
+
+        <p style="margin-top:16px;">The following actions result in <b>immediate permanent ban with no warning and no appeal:</b> any content involving the sexualization of minors, threats of physical violence against any person, doxxing, coordinated harassment campaigns targeting a member, and creating a fake account to evade a prior ban.</p>
+      </section>
+
+      <section id="appeals">
+        <h2>Appeals</h2>
+        <p>If you believe a moderation action was applied incorrectly, you may appeal within 14 days of receiving notice.</p>
+        <p>To appeal: Email <a href="mailto:legal@humaninterestapp.com">legal@humaninterestapp.com</a> with the word "Appeal" in the subject line. Include your account name, the action taken, and why you believe it was applied incorrectly. We will review and respond within 7 business days.</p>
+        <p>Permanent bans issued for child safety violations, threats of violence, or doxxing are not eligible for appeal.</p>
+      </section>
+
+      <section id="reporting">
+        <h2>How to Report</h2>
+        <p>Reporting keeps this community safe. It is always confidential — the person you report will never know you reported them.</p>
+        <h3>In the app</h3>
+        <p>Tap the three dots (...) on any post, message, or profile. Select Report. Choose the reason. We review every report.</p>
+        <h3>By email</h3>
+        <p>For urgent or complex situations, contact us at <a href="mailto:legal@humaninterestapp.com">legal@humaninterestapp.com</a>. Include screenshots and as much detail as you can.</p>
+        <h3>Emergencies</h3>
+        <p>If someone is in immediate danger, contact emergency services first. We are not a substitute for law enforcement in urgent situations.</p>
+      </section>
+
+      <section id="changes">
+        <h2>Changes to These Guidelines</h2>
+        <p>We may update these Community Guidelines from time to time as the platform grows and evolves. We will notify members of material changes through the App and by updating the Effective Date above. Your continued use of Human Interest after changes take effect means you accept the updated guidelines.</p>
+        <p>Human Interest is only as good as its community. These guidelines are how we protect what we're building together. If something ever feels off — report it. We're listening.</p>
+
+        <div class="contact-card" style="margin-top:20px;">
+          <div><b>Human Interest Group Inc.</b></div>
+          <div style="margin-top:8px;">
+            Email: <a href="mailto:legal@humaninterestapp.com">legal@humaninterestapp.com</a><br/>
+            Website: <a href="https://humaninterestapp.com/community-guidelines">humaninterestapp.com/community-guidelines</a>
+          </div>
+        </div>
+
+        <a class="back-top" href="#top">↑ Back to top</a>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Human Interest Group, Inc.
+      <div class="footer-links">
+        <a href="/index.html">Home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms and Conditions</a>
+        <a href="mailto:info@humaninterestapp.com">info@humaninterestapp.com</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
