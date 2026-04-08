@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SMS Consent — Human Interest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SMS opt-in consent flow for Human Interest Group, Inc." />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.45);
+      --line:rgba(255,255,255,.10);
+      --card:rgba(255,255,255,.04);
+      --max: 920px;
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55;
+    }
+
+    a{ color: var(--fg); text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    header{
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .kicker{
+      color: var(--soft);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1{
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .subhead{
+      color: var(--muted);
+      margin: 0;
+      max-width: 70ch;
+      font-size: 14px;
+    }
+
+    .meta-row{
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 14px;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .meta-pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .top-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .top-links a{
+      color: var(--muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+    }
+    .top-links a:hover{
+      color: var(--fg);
+      border-bottom-color: rgba(255,255,255,.35);
+      text-decoration: none;
+    }
+
+    section{
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+    section:first-of-type{ border-top: none; }
+
+    h2{
+      font-size: 18px;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+
+    p{
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 75ch;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 80ch;
+    }
+    li{ margin: 6px 0; }
+
+    .note{
+      margin-top: 12px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 85ch;
+    }
+
+    .steps{
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+      max-width: 600px;
+    }
+
+    .step{
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .step-number{
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+      color: var(--fg);
+    }
+
+    .step-content{
+      flex: 1;
+    }
+
+    .step-title{
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg);
+      margin: 0 0 4px;
+    }
+
+    .step-desc{
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .consent-box{
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      max-width: 600px;
+    }
+
+    .consent-box .label{
+      font-size: 12px;
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      margin: 0 0 8px;
+    }
+
+    .consent-box .text{
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    footer{
+      border-top: 1px solid var(--line);
+      margin-top: 28px;
+      padding: 26px 0 8px;
+      color: var(--soft);
+      font-size: 12px;
+      text-align: center;
+    }
+    .footer-links{
+      margin-top: 10px;
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+    .footer-links a{ color: var(--muted); }
+    .footer-links a:hover{ color: var(--fg); text-decoration: underline; }
+
+    .back-top{
+      display:inline-block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="top">
+
+    <header>
+      <div class="kicker">Human Interest</div>
+      <h1>SMS Opt-In Consent</h1>
+      <p class="subhead">
+        This page documents how Human Interest Group, Inc. obtains user consent to send SMS messages,
+        specifically one-time passcodes (OTP) for account verification.
+      </p>
+      <div class="meta-row">
+        <span class="meta-pill">For: A2P 10DLC Verification</span>
+        <span class="meta-pill">Use case: Two-Factor Authentication (2FA)</span>
+      </div>
+      <div class="top-links">
+        <a href="/index.html">← Back to Home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </header>
+
+    <main>
+
+      <section>
+        <h2>How Users Opt In</h2>
+        <p>
+          Users provide their phone number during account registration on the Human Interest mobile app (iOS and Android).
+          Before submitting their number, users are shown a clear disclosure explaining that they will receive
+          a one-time passcode via SMS to verify their identity. Consent is explicit and required to complete registration.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <div class="step-title">User downloads the app</div>
+              <div class="step-desc">Human Interest is available on iOS (App Store) and Android (Google Play). The user opens the app and taps "Create Account."</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <div class="step-title">User enters their phone number</div>
+              <div class="step-desc">On the registration screen, the user enters their mobile phone number. A consent disclosure is displayed directly below the phone number field.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <div class="step-title">Consent disclosure shown</div>
+              <div class="step-desc">Before the user taps "Send Code," the following message is displayed on screen:</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="consent-box">
+          <div class="label">Consent disclosure shown to user</div>
+          <p class="text">
+            "By entering your phone number, you agree to receive a one-time verification code via SMS from Human Interest.
+            Message and data rates may apply. Reply STOP to opt out."
+          </p>
+        </div>
+
+        <div class="steps" style="margin-top:16px;">
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <div class="step-title">User taps "Send Code"</div>
+              <div class="step-desc">By tapping this button, the user explicitly consents to receive an OTP via SMS. No SMS is sent without this action.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <div class="step-title">User receives OTP and enters it</div>
+              <div class="step-desc">The user receives a single SMS containing the verification code and enters it in the app to complete registration.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Message Details</h2>
+        <ul>
+          <li><b>Message type:</b> Transactional only — one-time passcodes (OTP) for account verification</li>
+          <li><b>Sender:</b> Human Interest Group, Inc.</li>
+          <li><b>Frequency:</b> Only upon user request (account registration, login, or account recovery)</li>
+          <li><b>No marketing messages</b> are sent via SMS</li>
+        </ul>
+
+        <div class="note" style="margin-top:16px;">
+          <b>Sample message sent to user:</b><br/><br/>
+          "Your Human Interest verification code is 847291. This code expires in 10 minutes. Do not share it with anyone. Reply STOP to opt out."
+        </div>
+      </section>
+
+      <section>
+        <h2>Opt-Out Instructions</h2>
+        <p>Users can opt out of SMS messages at any time by replying <b>STOP</b> to any message. For help, users can reply <b>HELP</b> or contact <a href="mailto:support@humaninterestapp.com">support@humaninterestapp.com</a>.</p>
+        <div class="note">
+          <b>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</b>
+          All other categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+        </div>
+      </section>
+
+      <section>
+        <h2>Privacy Policy</h2>
+        <p>
+          For full details on how Human Interest handles personal data including phone numbers and SMS communications,
+          see our <a href="/privacy.html#sms">Privacy Policy — Section 10: SMS Communications</a>.
+        </p>
+        <a class="back-top" href="#top">↑ Back to top</a>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Human Interest Group, Inc.
+      <div class="footer-links">
+        <a href="/index.html">Home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="mailto:info@humaninterestapp.com">info@humaninterestapp.com</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
