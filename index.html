@@ -20,6 +20,10 @@
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -50,6 +54,74 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    /* ── NAV BAR (after video) ── */
+    .site-nav {
+      width: 100%;
+      background: #000;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      height: 52px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .nav-cta {
+      flex-shrink: 0;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .nav-cta:hover {
+      border-color: #fff;
     }
 
     /* ABOUT SECTION */
@@ -113,6 +185,203 @@
       border-color: rgba(255,255,255,0.35);
     }
 
+    /* ── SHARED CONTENT SECTION STYLES ── */
+    .content-section {
+      background: #000;
+      padding: 72px 20px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .content-section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .section-pull {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      margin: 8px 0 0;
+    }
+
+    /* HOW IT WORKS — three cards */
+    .how-cards {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .how-card {
+      flex: 1 1 180px;
+      max-width: 220px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .how-card-num {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--soft);
+    }
+
+    .how-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .how-card-body {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .section-note {
+      font-size: 13px;
+      color: var(--soft);
+      margin-top: 4px;
+    }
+
+    /* WHAT'S DIFFERENT — four points */
+    .diff-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+      text-align: left;
+    }
+
+    .diff-item {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .diff-item strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .diff-item span {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* HOST STRIP */
+    .host-strip {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    .host-strip-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    /* DOWNLOAD SECTION */
+    .download-section {
+      background: #000;
+      padding: 80px 20px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .download-inner {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .download-title {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .download-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .store-btn {
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      transition: border-color 0.15s;
+    }
+
+    .store-btn:hover {
+      border-color: #fff;
+    }
+
     /* FOOTER */
     footer {
       margin-top: auto;
@@ -165,13 +434,46 @@
       color: var(--text);
       border-bottom-color: rgba(255,255,255,0.4);
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .site-nav-inner {
+        gap: 6px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+
+      .nav-cta {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .how-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+
+      .section-title,
+      .about-title {
+        font-size: 22px;
+      }
+
+      .download-title {
+        font-size: 28px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <!-- HERO -->
-  <img src="HI_Website.png" alt="Human Interest" class="hero" />
+  <div id="home">
+    <img src="HI_Website.png" alt="Human Interest" class="hero" />
+  </div>
 
   <!-- VIDEO -->
   <section class="video-section">
@@ -181,8 +483,108 @@
     </video>
   </section>
 
+  <!-- NAV (sticky, appears after video) -->
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#for-hosts">For Hosts</a>
+        <a href="#about">About</a>
+        <a href="#download">Download</a>
+      </div>
+      <a class="nav-cta" href="#download">Get the app</a>
+    </div>
+  </nav>
+
+  <!-- WHY WE EXIST -->
+  <section class="content-section">
+    <div class="content-section-inner">
+      <div class="section-eyebrow">Real, in a world that's gone fake.</div>
+      <p class="section-body">
+        The internet got great at connecting us and terrible at making it mean anything. Swiping turned people into a photo. Feeds replaced real community with an algorithm. And now AI is flooding everything with fake — fake profiles, fake faces, fake people. Human Interest is the opposite: real, verified people, in real communities, meeting in real life.
+      </p>
+      <p class="section-pull">When everything's fake, real is everything.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="content-section">
+    <div class="content-section-inner">
+      <h2 class="section-title">How Human Interest works</h2>
+      <div class="how-cards">
+        <div class="how-card">
+          <span class="how-card-num">1</span>
+          <p class="how-card-title">Join your city.</p>
+          <p class="how-card-body">Every city is a network. Pick yours.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-card-num">2</span>
+          <p class="how-card-title">Find your communities.</p>
+          <p class="how-card-body">Inside are channels built around what you love — fitness, food, nightlife, music, and more.</p>
+        </div>
+        <div class="how-card">
+          <span class="how-card-num">3</span>
+          <p class="how-card-title">Meet in real life.</p>
+          <p class="how-card-body">Show up, join the conversation, make plans, and meet the people who love what you love.</p>
+        </div>
+      </div>
+      <p class="section-note">Everyone's verified — one real human, one account.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S DIFFERENT -->
+  <section class="content-section">
+    <div class="content-section-inner">
+      <h2 class="section-title">Not another swipe app.</h2>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <strong>Verified humans only.</strong>
+          <span>No bots, no fakes — a quick face check keeps it real.</span>
+        </div>
+        <div class="diff-item">
+          <strong>Community first.</strong>
+          <span>You belong to something before you ever "match."</span>
+        </div>
+        <div class="diff-item">
+          <strong>Built for real life.</strong>
+          <span>The whole point is to get off the app and actually meet.</span>
+        </div>
+        <div class="diff-item">
+          <strong>Friends and more.</strong>
+          <span>Come for the community; find friends, plans, and maybe the one.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR HOSTS STRIP -->
+  <section id="for-hosts" class="host-strip">
+    <div class="host-strip-inner">
+      <div class="section-eyebrow">For community leaders</div>
+      <h2 class="section-title">Lead a community? Host on Human Interest.</h2>
+      <p class="section-body">
+        If you bring people together — a run club, a studio, a night out, a scene — host your community here, own the relationship, and earn for it. We do the work.
+      </p>
+      <div class="about-links">
+        <a href="mailto:info@humaninterestapp.com">Become a Host</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S HAPPENING -->
+  <section class="content-section">
+    <div class="content-section-inner">
+      <h2 class="section-title">What's happening on Human Interest</h2>
+      <p class="section-body">
+        Real communities are forming around real interests. Our New York channels at launch: Fitness, Foodies, and Out Tonight — with more cities to come.
+      </p>
+      <p class="section-note">Live now in beta on iOS and Android · New York launching this fall.</p>
+    </div>
+  </section>
+
   <!-- ABOUT -->
-  <section class="about">
+  <section id="about" class="about">
     <div class="about-inner">
       <div class="about-label">Human Interest Group, Inc.</div>
       <h1 class="about-title">A new kind of social community</h1>
@@ -191,6 +593,18 @@
       </p>
       <div class="about-links">
         <a href="mailto:info@humaninterestapp.com">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="download-section">
+    <div class="download-inner">
+      <h2 class="download-title">Come say HI.</h2>
+      <p class="download-sub">Download Human Interest and find your people.</p>
+      <div class="store-buttons">
+        <a class="store-btn" href="#">Download — App Store</a>
+        <a class="store-btn" href="#">Get it on Google Play</a>
       </div>
     </div>
   </section>
