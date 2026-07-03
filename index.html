@@ -9,6 +9,8 @@
     content="Human Interest is a verified social community platform available on iOS and Android, connecting people through shared interests, creator-led channels, and live audio rooms."
   />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #000;
@@ -435,6 +437,109 @@
       border-bottom-color: rgba(255,255,255,0.4);
     }
 
+    /* ── CODED SECTIONS (Anton style) ── */
+    .hi-section {
+      background: #000;
+      padding: 80px 60px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hi-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    /* Top row: title left, screens right */
+    .about-top-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-top-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-top-right {
+      width: 100%;
+    }
+
+    .screens-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Text block below */
+    .about-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 860px;
+    }
+
+    .hi-label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin: 0;
+    }
+
+    .hi-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(64px, 9vw, 120px);
+      color: #F6A719;
+      margin: 0;
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .hi-body {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .hi-pull {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+      margin: 12px 0 0;
+    }
+
+    .hi-btn {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      transition: border-color 0.15s, color 0.15s;
+      align-self: flex-start;
+    }
+
+    .hi-btn:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .hi-section { padding: 56px 20px; }
+      .about-top-row { grid-template-columns: 1fr; }
+      .hi-title { font-size: 72px; }
+    }
+
     /* IMAGE SECTIONS */
     .img-section {
       width: 100%;
@@ -527,9 +632,10 @@
     <div class="site-nav-inner">
       <div class="nav-links">
         <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#how-it-works">How it works</a>
         <a href="#for-hosts">For Hosts</a>
-        <a href="#about">About</a>
+        <a href="#team">Team</a>
         <a href="#download">Download</a>
       </div>
     </div>
@@ -548,12 +654,40 @@
     </video>
   </section>
 
-  <!-- 1. ABOUT US -->
-  <section id="about" class="img-section">
-    <div class="img-section-wrap">
-      <img src="1__ABOUT_US_.png" alt="About Us — Human Interest" class="section-img" />
-      <a class="img-link-area" style="left:36%;top:29%;width:14%;height:6%;"
-         href="mailto:info@humaninterestapp.com" aria-label="Contact Us"></a>
+  <!-- 1. ABOUT US — coded section -->
+  <section id="about" class="hi-section">
+    <div class="hi-section-inner">
+
+      <!-- Top row: title left, screens right -->
+      <div class="about-top-row">
+        <div class="about-top-left">
+          <p class="hi-label">HUMAN INTEREST GROUP, INC.</p>
+          <h2 class="hi-title">ABOUT<br>US</h2>
+        </div>
+        <div class="about-top-right">
+          <img src="imagen-aboutUs.png" alt="Human Interest app screens" class="screens-img" />
+        </div>
+      </div>
+
+      <!-- Full text below -->
+      <div class="about-text-block">
+        <p class="hi-body">At Human Interest, our mission is simple: help real people find each other through the things they genuinely care about.</p>
+        <p class="hi-body">We believe the best connections do not start with a swipe. They start with a shared interest, a common rhythm, a place, a passion, a night out, a class, a song, a table, a conversation. Human Interest was built around that belief.</p>
+        <p class="hi-body">HI is a verified, next generation social discovery app where people join interest-based communities around what they love — fitness, food, nightlife, music, culture, travel, wellness, and more — then meet, connect, date, and make friends in real life.</p>
+        <p class="hi-body">We've created a new kind of social platform. One that sits between social networking and dating, but works differently and better than both. Less performative. Less random. Less transactional. More Human.</p>
+        <p class="hi-body">Every member is verified. Every community is built around a shared interest. Every connection starts with something more meaningful than a photo and a first impression.</p>
+        <p class="hi-body">Human Interest is the place where real people, shared interests, and real-world connections finally come together.</p>
+        <p class="hi-body">Your home feed has a daily rhythm to it built to pull you toward people with shared interests and connect with them, not keep you scrolling past them.</p>
+        <p class="hi-body">Every part of the app is designed for one thing: connection. No ads, no selling your data, no algorithm working against you.</p>
+        <p class="hi-body">Human Interest is member-supported, so we answer to you — not to advertisers. Other apps are built to keep you looking. We're built to help you find.</p>
+        <p class="hi-body">That means you do not just browse people. You enter communities. You find your scene. You discover people through shared energy, shared places, shared passions, and shared intent.</p>
+        <p class="hi-body">Whether you are looking for new friends, a date, a group to go out with, a workout partner, a dinner crew, or simply people who love what you love, HI gives you a better way to find them.</p>
+        <p class="hi-body">We are not trying to make people spend more time online. We are trying to make the time they spend online lead to something real.</p>
+        <p class="hi-body">We're starting in New York, one community at a time, because real connection happens locally before it happens anywhere else. Human Interest is where you meet the people who end up mattering.</p>
+        <p class="hi-pull">The Daily Habit for Your Social Life.<br>Come say HI.</p>
+        <a class="hi-btn" href="mailto:info@humaninterestapp.com">Contact Us</a>
+      </div>
+
     </div>
   </section>
 
