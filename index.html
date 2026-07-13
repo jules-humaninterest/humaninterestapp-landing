@@ -498,6 +498,12 @@
       }
     }
 
+    @media (max-width: 768px) {
+      .store-badges {
+        align-items: center;
+      }
+    }
+
     /* TEAM GRID */
     .team-grid {
       display: grid;
@@ -590,7 +596,7 @@
 
     .hi-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(32px, 4.5vw, 64px);
+      font-size: clamp(28px, 4vw, 56px);
       color: #F6A719;
       margin: 0;
       line-height: 1.05;
@@ -950,7 +956,7 @@
             <h2 class="hi-title">COME SAY HI!</h2>
             <p class="hi-body" style="margin-top:16px;">Download Human Interest and find your people.</p>
           </div>
-          <div style="display:flex; flex-direction:column; gap:16px;">
+          <div class="store-badges" style="display:flex; flex-direction:column; gap:16px;">
             <a href="https://play.google.com/store/apps/details?id=com.jeuxdevelopers.human_interest" target="_blank" rel="noopener">
               <img src="imagen_googleplay.jpg" alt="Get it on Google Play" style="height:56px; width:auto; display:block;" />
             </a>
