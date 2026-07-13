@@ -490,8 +490,12 @@
     }
 
     @media (max-width: 768px) {
-      .notanother-grid { grid-template-columns: 1fr; }
-      .notanother-img { display: none; }
+      .notanother-grid {
+        grid-template-columns: 1fr;
+      }
+      .notanother-img {
+        display: block;
+      }
     }
 
     /* Two-column text grid */
@@ -531,7 +535,7 @@
 
     .hi-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(36px, 5vw, 72px);
+      font-size: clamp(32px, 4.5vw, 64px);
       color: #F6A719;
       margin: 0;
       line-height: 1.05;
@@ -770,7 +774,7 @@
     <div class="hi-section-inner">
 
       <!-- Full width title -->
-      <h2 class="hi-title" style="font-size: clamp(36px, 6vw, 88px); line-height:1.0;">NOT ANOTHER SWIPE APP.</h2>
+      <h2 class="hi-title">NOT ANOTHER SWIPE APP.</h2>
 
       <!-- Text left, image right -->
       <div class="notanother-grid">
