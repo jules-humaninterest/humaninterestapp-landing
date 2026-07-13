@@ -115,11 +115,11 @@
     }
 
     .nav-links a {
-      font-size: 11px;
+      font-size: 13px;
       color: var(--muted);
       text-decoration: none;
       white-space: nowrap;
-      padding: 6px 4px;
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: color 0.15s, border-color 0.15s;
@@ -666,7 +666,7 @@
 
     .hi-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(24px, 6vw, 88px);
+      font-size: 88px;
       color: #F6A719;
       margin: 0;
       line-height: 1.05;
@@ -675,7 +675,7 @@
 
     @media (max-width: 768px) {
       .hi-title {
-        font-size: 24px;
+        font-size: 22px;
       }
       .store-badges {
         justify-content: center;
@@ -684,6 +684,10 @@
       }
       .store-badges img {
         height: 38px !important;
+      }
+      .nav-links a {
+        font-size: 10px;
+        padding: 6px 3px;
       }
     }
 
