@@ -498,6 +498,61 @@
       }
     }
 
+    /* TEAM GRID */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px 24px;
+      align-items: start;
+    }
+
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .team-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-name {
+      font-family: 'Anton', sans-serif;
+      font-size: 13px;
+      color: #F6A719;
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+    }
+
+    .team-role {
+      font-size: 12px;
+      color: var(--text);
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.4;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 768px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     /* Two-column text grid */
     .about-two-col {
       display: grid;
@@ -816,9 +871,53 @@
     </div>
   </section>
 
-  <!-- 5. TEAM -->
-  <section id="team" class="img-section">
-    <img src="imagen-team.png" alt="Our Team — Human Interest" class="section-img" />
+  <!-- 5. TEAM — coded section -->
+  <section id="team" class="hi-section">
+    <div class="hi-section-inner">
+
+      <h2 class="hi-title">OUR TEAM</h2>
+
+      <div class="team-grid">
+
+        <div class="team-member">
+          <img src="114.png" alt="Ross Elliot" class="team-photo" />
+          <p class="team-name">ROSS ELLIOT</p>
+          <p class="team-role">FOUNDER & CEO</p>
+        </div>
+
+        <div class="team-member">
+          <img src="115.png" alt="Hameed Azeez" class="team-photo" />
+          <p class="team-name">HAMEED AZEEZ</p>
+          <p class="team-role">HEAD OF PRODUCT</p>
+        </div>
+
+        <div class="team-member">
+          <img src="116.png" alt="Laura Ilisii" class="team-photo" />
+          <p class="team-name">LAURA ILISII</p>
+          <p class="team-role">COMMUNITY ENGAGEMENT DIRECTOR</p>
+        </div>
+
+        <div class="team-member">
+          <img src="117.png" alt="Sofia Jurich" class="team-photo" />
+          <p class="team-name">SOFIA JURICH</p>
+          <p class="team-role">MANAGER, TEAM OPERATIONS</p>
+        </div>
+
+        <div class="team-member">
+          <img src="118.png" alt="Muhammad Arslan Riaz" class="team-photo" />
+          <p class="team-name">MUHAMMAD ARSLAN RIAZ</p>
+          <p class="team-role">LEAD DEVELOPER</p>
+        </div>
+
+        <div class="team-member">
+          <img src="119.png" alt="Tayyab Mubeen" class="team-photo" />
+          <p class="team-name">TAYYAB MUBEEN</p>
+          <p class="team-role">PROJECT DEVELOPER</p>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
   <!-- 6. WHAT'S HAPPENING -->
