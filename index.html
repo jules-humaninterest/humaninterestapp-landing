@@ -628,6 +628,14 @@
     }
 
     @media (max-width: 768px) {
+      .howitworks-img-wrap {
+        padding-left: 0 !important;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
       .about-two-col { grid-template-columns: 1fr; }
       .col-item { padding: 20px 0; }
     }
@@ -880,7 +888,7 @@
         <div style="display:flex; flex-direction:column; justify-content:center; padding:0 0 32px;">
           <h2 class="hi-title">HOW HUMAN<br>INTEREST WORKS</h2>
         </div>
-        <div style="padding:0 0 32px; padding-left:60px;">
+        <div class="howitworks-img-wrap" style="padding:0 0 32px; padding-left:60px;">
           <img src="imagen_howitworks.png" alt="Share Your Passion" class="screens-img" onerror="this.style.display='none'" />
         </div>
       </div>
