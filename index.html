@@ -59,6 +59,14 @@
       display: block;
     }
 
+    .mobile-only-video { display: none; }
+    .desktop-only-video { display: block; }
+
+    @media (max-width: 768px) {
+      .mobile-only-video { display: block; }
+      .desktop-only-video { display: none; }
+    }
+
     /* ── NAV BAR (after video) ── */
     .site-nav {
       width: 100%;
@@ -750,9 +758,14 @@
 
   <!-- VIDEO -->
   <section class="video-section">
-    <video autoplay muted loop playsinline preload="auto">
+    <!-- Desktop video (original) -->
+    <video class="desktop-only-video" autoplay muted loop playsinline preload="auto">
       <source src="hero.mp4" type="video/mp4" />
       <source src="hero.mov" type="video/quicktime" />
+    </video>
+    <!-- Mobile video (vertical) -->
+    <video class="mobile-only-video" autoplay muted loop playsinline preload="auto">
+      <source src="HI_LANDING_VIDEO.mp4" type="video/mp4" />
     </video>
   </section>
 
