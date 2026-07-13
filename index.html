@@ -56,15 +56,14 @@
     .video-section video {
       width: 100%;
       height: auto;
-      display: block;
     }
 
     .mobile-only-video { display: none; }
     .desktop-only-video { display: block; }
 
     @media (max-width: 768px) {
-      .mobile-only-video { display: block; }
-      .desktop-only-video { display: none; }
+      .mobile-only-video { display: block !important; }
+      .desktop-only-video { display: none !important; }
     }
 
     /* ── NAV BAR (after video) ── */
