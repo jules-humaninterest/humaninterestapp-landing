@@ -72,15 +72,21 @@
       .desktop-only-video { display: none !important; }
     }
 
-    /* ── NAV BAR (after video) ── */
+    /* ── NAV BAR ── */
     .site-nav {
       width: 100%;
       background: #000;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    body {
+      padding-top: 52px;
     }
 
     .site-nav-inner {
@@ -524,6 +530,34 @@
       }
     }
 
+    /* LEAD A COMMUNITY LAYOUT */
+    .lead-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .lead-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .lead-title-block {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .lead-layout {
+        grid-template-columns: 1fr;
+      }
+      .lead-title-block {
+        order: -1;
+      }
+    }
+
     /* TEAM GRID */
     .team-grid {
       display: grid;
@@ -891,21 +925,21 @@
   <section id="for-hosts" class="hi-section">
     <div class="hi-section-inner">
 
-      <!-- Title always first -->
-      <h2 class="hi-title">LEAD A<br>COMMUNITY?<br>HOST ON<br>HUMAN<br>INTEREST.</h2>
-
-      <div class="notanother-grid">
+      <!-- Mobile: title first. Desktop: two columns (content left, title right) -->
+      <div class="lead-layout">
 
         <!-- Left: label + text + button + phones image -->
-        <div style="display:flex; flex-direction:column; gap:24px;">
+        <div class="lead-content">
           <p class="hi-label">FOR COMMUNITY LEADERS</p>
           <p class="hi-body">If you bring people together — a run club, a studio, a night out, a scene — host your community here, own the relationship, and earn for it. We do the work.</p>
           <a class="hi-btn" href="mailto:host@humaninterestapp.com">Become a Host</a>
           <img src="imagen_Leadacommunity.jpg" alt="Lead a Community" class="screens-img" style="margin-top:16px;" onerror="this.style.display='none'" />
         </div>
 
-        <!-- Right: empty on mobile, decorative space on desktop -->
-        <div class="lead-desktop-only"></div>
+        <!-- Right: big title -->
+        <div class="lead-title-block">
+          <h2 class="hi-title">LEAD A<br>COMMUNITY?<br>HOST ON<br>HUMAN<br>INTEREST.</h2>
+        </div>
 
       </div>
 
