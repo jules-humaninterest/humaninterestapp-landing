@@ -455,7 +455,7 @@
     /* Top row: title left, screens right */
     .about-top-row {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: 1.2fr 1fr;
       gap: 48px;
       align-items: center;
     }
@@ -472,8 +472,28 @@
 
     .screens-img {
       width: 100%;
+      max-width: 480px;
       height: auto;
       display: block;
+    }
+
+    /* Two-column text grid */
+    .about-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 60px;
+      align-items: start;
+      border-top: 1px solid var(--line);
+    }
+
+    .col-item {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 768px) {
+      .about-two-col { grid-template-columns: 1fr; }
+      .col-item { padding: 20px 0; }
     }
 
     /* Text block below */
@@ -494,10 +514,10 @@
 
     .hi-title {
       font-family: 'Anton', sans-serif;
-      font-size: clamp(64px, 9vw, 120px);
+      font-size: clamp(36px, 5vw, 72px);
       color: #F6A719;
       margin: 0;
-      line-height: 0.92;
+      line-height: 1.05;
       text-transform: uppercase;
     }
 
@@ -658,9 +678,10 @@
   <section id="about" class="hi-section">
     <div class="hi-section-inner">
 
-      <!-- Top row: title left, screens right -->
+      <!-- Title left, photo right -->
       <div class="about-top-row">
         <div class="about-top-left">
+          <p class="hi-label">HUMAN INTEREST GROUP, INC.</p>
           <h2 class="hi-title">ABOUT<br>US</h2>
         </div>
         <div class="about-top-right">
@@ -668,32 +689,63 @@
         </div>
       </div>
 
-      <!-- Full text below -->
-      <div class="about-text-block">
-        <p class="hi-label">HUMAN INTEREST GROUP, INC.</p>
-        <p class="hi-body">At Human Interest, our mission is simple: help real people find each other through the things they genuinely care about.</p>
-        <p class="hi-body">We believe the best connections do not start with a swipe. They start with a shared interest, a common rhythm, a place, a passion, a night out, a class, a song, a table, a conversation. Human Interest was built around that belief.</p>
-        <p class="hi-body">HI is a verified, next generation social discovery app where people join interest-based communities around what they love — fitness, food, nightlife, music, culture, travel, wellness, and more — then meet, connect, date, and make friends in real life.</p>
-        <p class="hi-body">We've created a new kind of social platform. One that sits between social networking and dating, but works differently and better than both. Less performative. Less random. Less transactional. More Human.</p>
-        <p class="hi-body">Every member is verified. Every community is built around a shared interest. Every connection starts with something more meaningful than a photo and a first impression.</p>
-        <p class="hi-body">Human Interest is the place where real people, shared interests, and real-world connections finally come together.</p>
-        <p class="hi-body">Your home feed has a daily rhythm to it built to pull you toward people with shared interests and connect with them, not keep you scrolling past them.</p>
-        <p class="hi-body">Every part of the app is designed for one thing: connection. No ads, no selling your data, no algorithm working against you.</p>
-        <p class="hi-body">Human Interest is member-supported, so we answer to you — not to advertisers. Other apps are built to keep you looking. We're built to help you find.</p>
-        <p class="hi-body">That means you do not just browse people. You enter communities. You find your scene. You discover people through shared energy, shared places, shared passions, and shared intent.</p>
-        <p class="hi-body">Whether you are looking for new friends, a date, a group to go out with, a workout partner, a dinner crew, or simply people who love what you love, HI gives you a better way to find them.</p>
-        <p class="hi-body">We are not trying to make people spend more time online. We are trying to make the time they spend online lead to something real.</p>
-        <p class="hi-body">We're starting in New York, one community at a time, because real connection happens locally before it happens anywhere else. Human Interest is where you meet the people who end up mattering.</p>
-        <p class="hi-pull">The Daily Habit for Your Social Life.<br>Come say HI.</p>
-        <a class="hi-btn" href="mailto:info@humaninterestapp.com">Contact Us</a>
+      <!-- Two-column text -->
+      <div class="about-two-col">
+
+        <p class="hi-body col-item">At Human Interest, our mission is simple: help real people find each other through the things they genuinely care about.</p>
+        <p class="hi-body col-item">We believe the best connections do not start with a swipe. They start with a shared interest, a common rhythm, a place, a passion, a night out, a class, a song, a table, a conversation. Human Interest was built around that belief.</p>
+
+        <p class="hi-body col-item">HI is a verified, next generation social discovery app where people join interest-based communities around what they love — fitness, food, nightlife, music, culture, travel, wellness, and more — then meet, connect, date, and make friends in real life.</p>
+        <p class="hi-body col-item">We've created a new kind of social platform. One that sits between social networking and dating, but works differently and better than both. Less performative. Less random. Less transactional. More Human.</p>
+
+        <p class="hi-body col-item">Every member is verified. Every community is built around a shared interest. Every connection starts with something more meaningful than a photo and a first impression.</p>
+        <p class="hi-body col-item">Human Interest is the place where real people, shared interests, and real-world connections finally come together.</p>
+
+        <p class="hi-body col-item">Your home feed has a daily rhythm to it built to pull you toward people with shared interests and connect with them, not keep you scrolling past them.</p>
+        <p class="hi-body col-item">Every part of the app is designed for one thing: connection. No ads, no selling your data, no algorithm working against you.</p>
+
+        <p class="hi-body col-item">Human Interest is member-supported, so we answer to you — not to advertisers. Other apps are built to keep you looking. We're built to help you find.</p>
+        <p class="hi-body col-item">That means you do not just browse people. You enter communities. You find your scene. You discover people through shared energy, shared places, shared passions, and shared intent.</p>
+
+        <p class="hi-body col-item">Whether you are looking for new friends, a date, a group to go out with, a workout partner, a dinner crew, or simply people who love what you love, HI gives you a better way to find them.</p>
+        <p class="hi-body col-item">We are not trying to make people spend more time online. We are trying to make the time they spend online lead to something real.</p>
+
+        <p class="hi-body col-item">We're starting in New York, one community at a time, because real connection happens locally before it happens anywhere else. Human Interest is where you meet the people who end up mattering.</p>
+        <div class="col-item" style="display:flex; flex-direction:column; gap:16px;">
+          <p class="hi-pull">The Daily Habit for Your Social Life.<br>Come say HI.</p>
+          <a class="hi-btn" href="mailto:info@humaninterestapp.com">Contact Us</a>
+        </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- 2. HOW HUMAN INTEREST WORKS -->
-  <section id="how-it-works" class="img-section">
-    <img src="2_HOW_HUMAN_.png" alt="How Human Interest Works" class="section-img" />
+  <!-- 2. HOW HUMAN INTEREST WORKS — coded section -->
+  <section id="how-it-works" class="hi-section">
+    <div class="hi-section-inner">
+
+      <!-- Top row: title left, image right -->
+      <div class="about-top-row">
+        <div class="about-top-left">
+          <h2 class="hi-title">HOW HUMAN<br>INTEREST WORKS</h2>
+        </div>
+        <div class="about-top-right">
+          <img src="imagen_howitworks.png" alt="Share Your Passion" class="screens-img" onerror="this.style.display='none'" />
+        </div>
+      </div>
+
+      <!-- Text below -->
+      <div class="about-text-block">
+        <p class="hi-pull" style="color:#F6A719;">Real people. Real interests. Real connection.</p>
+        <p class="hi-body"><strong style="color:#fff;">Verify who you are.</strong><br>Every member is verified, so HI starts with trust.</p>
+        <p class="hi-body"><strong style="color:#fff;">Choose what you love.</strong><br>Join communities built around your interests — fitness, food, nightlife, music, wellness, culture, travel, and more.</p>
+        <p class="hi-body"><strong style="color:#fff;">Discover people through shared context.</strong><br>Find people who like what you like, go where you go, and are open to meeting in real life.</p>
+        <p class="hi-body"><strong style="color:#fff;">Connect beyond the screen.</strong><br>Make friends. Date. Join a group. Go out. Meet up.</p>
+        <p class="hi-body">HI is not built to keep you scrolling.<br>It is built to help you find your people — and actually meet them.</p>
+      </div>
+
+    </div>
   </section>
 
   <!-- 3. NOT ANOTHER SWIPE APP -->
