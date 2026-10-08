@@ -514,10 +514,13 @@
       .notanother-img {
         display: block;
       }
-      /* Enlarge About Us image on mobile only */
+      /* About Us: stack vertically on mobile, image below title */
+      .about-top-row {
+        grid-template-columns: 1fr !important;
+      }
       .about-top-row .screens-img {
-        width: 160% !important;
-        margin-left: -30% !important;
+        width: 100% !important;
+        margin-left: 0 !important;
       }
       /* Enlarge Not Another Swipe App image on mobile only */
       .notanother-img img {
