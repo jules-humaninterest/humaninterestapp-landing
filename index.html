@@ -514,6 +514,16 @@
       .notanother-img {
         display: block;
       }
+      /* Enlarge About Us image on mobile only */
+      .about-top-row .screens-img {
+        width: 130% !important;
+        margin-left: -15% !important;
+      }
+      /* Enlarge Not Another Swipe App image on mobile only */
+      .notanother-img img {
+        width: 130% !important;
+        margin-left: -15% !important;
+      }
     }
 
     @media (max-width: 768px) {
@@ -856,7 +866,7 @@
     <div class="hi-section-inner">
 
       <!-- Title left, photo right -->
-      <div style="display:grid; grid-template-columns:1fr 2fr; gap:0 40px; align-items:center;">
+      <div class="about-top-row" style="display:grid; grid-template-columns:1fr 2fr; gap:0 40px; align-items:center;">
         <div style="display:flex; flex-direction:column; justify-content:center;">
           <h2 class="hi-title">ABOUT<br>US</h2>
           <p class="hi-label" style="margin-top:24px;">HUMAN INTEREST GROUP, INC.</p>
